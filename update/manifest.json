@@ -5,8 +5,8 @@
   "sha256": "f11c50555b8cc22e9cbbd3cb93da811d72b5a3ff02dae8f8b3383fe48c6025cb",
   "min_required_version": "1.0.0",
   "size_bytes": 98649445,
-  "release_notes_zh": "首个公开发行版。\n- PySide6 界面，中文安装向导，支持覆盖升级\n- 支持 TXT / CSV / XLSX / LabChart .adicht\n- 双瓶（正/负极性）与单瓶分析；爆发、餐次、爆发内频率等 30+ 指标\n- Lick AI 模型训练与 ONNX 推理\n- 14 类图表、Excel 多工作表导出、文件夹批量分析\n- 启动自动检查更新，下载后自动覆盖安装",
-  "release_notes_en": "First public release.\n- PySide6 interface with a Chinese setup wizard and in-place upgrades\n- Reads TXT / CSV / XLSX / LabChart .adicht\n- Dual-bottle (positive/negative polarity) and single-bottle analysis; 30+ burst, meal and intraburst metrics\n- Lick AI model training with ONNX inference\n- 14 plot types, multi-sheet Excel export, folder batch analysis\n- Automatic update check on startup with in-place install",
+  "release_notes_zh": "首个公开发行版。\r\n- PySide6 界面，中文安装向导，支持覆盖升级\r\n- 支持 TXT / CSV / XLSX / LabChart .adicht\r\n- 双瓶（正/负极性）与单瓶分析；爆发、餐次、爆发内频率等 30+ 指标\r\n- Lick AI 模型训练与 ONNX 推理\r\n- 14 类图表、Excel 多工作表导出、文件夹批量分析\r\n- 启动自动检查更新，下载后自动覆盖安装",
+  "release_notes_en": "First public release.\r\n- PySide6 interface with a Chinese setup wizard and in-place upgrades\r\n- Reads TXT / CSV / XLSX / LabChart .adicht\r\n- Dual-bottle (positive/negative polarity) and single-bottle analysis; 30+ burst, meal and intraburst metrics\r\n- Lick AI model training with ONNX inference\r\n- 14 plot types, multi-sheet Excel export, folder batch analysis\r\n- Automatic update check on startup with in-place install",
   "model": {
     "version": "1",
     "pkl_url": "",
