@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Lickometer Pro — 啮齿动物舔舐微观结构分析系统。PySide6 桌面应用，支持 TXT / CSV / XLSX 与 LabChart .adicht，双瓶与单瓶分析、爆发与餐次指标、Weibull ILI 拟合、AI 舔舐识别、14 类图表与多工作表 Excel 导出。">
+<title>Lickometer Pro — 啮齿动物舔舐微观结构分析系统</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237C5CBF'/%3E%3Cpath d='M8 34 L20 34 23 18 27 46 31 26 34 38 37 34 56 34' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Lickometer Pro">
+      <svg class="brand-mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="14" fill="#7C5CBF"/>
+        <path d="M8 34 L20 34 23 18 27 46 31 26 34 38 37 34 56 34" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-name">Lickometer Pro</span>
+      <span class="brand-badge">v1.7.0</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-attr="aria-label:a11y.menutoggle" aria-label="打开导航菜单">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" data-i18n-attr="aria-label:a11y.mainnav" aria-label="主导航">
+      <ul class="nav-links">
+        <li><a href="#features" data-i18n="nav.features">功能</a></li>
+        <li><a href="#gallery" data-i18n="nav.gallery">界面</a></li>
+        <li><a href="#download" data-i18n="nav.download">下载</a></li>
+        <li><a href="#docs" data-i18n="nav.docs">文档</a></li>
+        <li><a href="#update" data-i18n="nav.update">更新</a></li>
+      </ul>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:a11y.langlabel" aria-label="语言">
+          <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">中文</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+        <button type="button" class="theme-btn" data-i18n-attr="aria-label:a11y.theme" aria-label="切换深色/浅色主题">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4.2"/>
+            <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5 5l1.8 1.8M17.2 17.2 19 19M19 5l-1.8 1.8M6.8 17.2 5 19"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="hero-kicker">
+          <span class="kicker-pill">AI Enhanced Edition</span>
+          <span class="kicker-meta">v1.7.0 · Windows 10 / 11 x64 · <span data-i18n="hero.lic">MIT 开源</span></span>
+        </p>
+        <h1 id="hero-title" data-i18n="hero.title">啮齿动物舔舐微观结构分析系统</h1>
+        <p class="hero-sub" data-i18n="hero.sub">基于 PySide6 的专业桌面应用：读取 TXT / CSV / XLSX 与 LabChart .adicht，输出爆发、餐次与舔舐间隔（ILI）全套微观结构指标，一键生成出版级图表与多工作表 Excel。</p>
+        <p class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/BuTrue/Lickometer-Pro/releases/latest" data-i18n="hero.cta1">下载安装包</a>
+          <a class="btn btn-ghost" href="https://github.com/BuTrue/Lickometer-Pro" data-i18n="hero.cta2">查看文档</a>
+        </p>
+        <ul class="hero-chips">
+          <li data-i18n="hero.chip1">中文界面</li>
+          <li data-i18n="hero.chip2">本地离线分析</li>
+          <li data-i18n="hero.chip3">自动检查更新</li>
+        </ul>
+      </div>
+      <figure class="hero-shot">
+        <div class="shot-frame">
+          <img src="images/screenshot-labchart.png" width="1400" height="900" decoding="async"
+               alt="Lickometer Pro 主界面：LabChart 多通道波形与双瓶分析" data-i18n-attr="alt:hero.imgalt">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= Stats strip ================= -->
+  <section class="stats" aria-label="数据一览" data-i18n-attr="aria-label:stats.label">
+    <div class="wrap stats-grid">
+      <div class="stat"><span class="stat-num">14</span><span class="stat-label" data-i18n="stats.s1">类出版级图表</span></div>
+      <div class="stat"><span class="stat-num">30+</span><span class="stat-label" data-i18n="stats.s2">项微观结构指标</span></div>
+      <div class="stat"><span class="stat-num">2</span><span class="stat-label" data-i18n="stats.s3">个水瓶极性通道</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label" data-i18n="stats.s4">本地离线处理</span></div>
+    </div>
+  </section>
+
+  <!-- ================= Features ================= -->
+  <section class="section" id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <p class="section-kicker" data-i18n="feat.kicker">功能</p>
+      <h2 id="features-title" class="section-title" data-i18n="feat.title">从原始记录到论文图表的完整闭环</h2>
+      <div class="feature-grid">
+        <article class="card feature-card">
+          <svg class="feature-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M10 6h4v4l2 6a4 4 0 0 1-8 0l2-6V6Z"/><path d="M22 6h4v4l2 6a4 4 0 0 1-8 0l2-6V6Z"/>
+          </svg>
+          <h3 data-i18n="feat.c1t">双瓶 / 单瓶分析</h3>
+          <p data-i18n="feat.c1b">同一段记录按峰的正 / 负极性拆分为两个水瓶（B1 / B2），自动给出偏好率、偏好指数与换瓶统计；单瓶记录照常处理。</p>
+        </article>
+        <article class="card feature-card">
+          <svg class="feature-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M3 18h5l3-10 4 16 3-8 2 2h9"/><path d="M4 26h24" opacity=".5"/>
+          </svg>
+          <h3 data-i18n="feat.c2t">LabChart 原生导入</h3>
+          <p data-i18n="feat.c2b">经官方 ADInstruments SDK（adi-reader）流式读取多日、多通道、多 record 的 .adicht，恒定内存占用；按通道分配「饮水统计 / 辅助展示 / 忽略」。</p>
+        </article>
+        <article class="card feature-card">
+          <svg class="feature-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M3 26c4-14 7-18 10-18s5 8 8 8 6-10 8-12"/><circle cx="13" cy="8" r="2"/>
+          </svg>
+          <h3 data-i18n="feat.c3t">爆发 · 餐次 · ILI</h3>
+          <p data-i18n="feat.c3b">Burst / Meal / 爆发内频率阈值全部可调；对舔舐间隔分布做 Weibull 拟合（Davis, 1998）与高斯混合，统计比较支持 Mann–Whitney U 与 Kruskal–Wallis + Dunn 事后。</p>
+        </article>
+        <article class="card feature-card">
+          <svg class="feature-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <rect x="7" y="7" width="18" height="18" rx="4"/><path d="M12 12h2M18 12h2M12 20c1.5-2 6.5-2 8 0"/><path d="M16 3v4M9 5l2 3M23 5l-2 3" opacity=".6"/>
+          </svg>
+          <h3 data-i18n="feat.c4t">AI 舔舐识别</h3>
+          <p data-i18n="feat.c4b">波形手动标注后一键重训模型，ONNX 推理过滤伪峰，文件损坏自动回退 .pkl 检查点；模型可与软件分离、独立推送更新。</p>
+        </article>
+        <article class="card feature-card">
+          <svg class="feature-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="24" height="24" rx="3"/><path d="M4 12h24M12 12v16" opacity=".6"/><path d="M17 23v-5M21 23v-8M25 23v-3"/>
+          </svg>
+          <h3 data-i18n="feat.c5t">14 类图表 · Excel 导出</h3>
+          <p data-i18n="feat.c5b">时间序列、分布与热图、爆发与关系三组共 14 类图表内嵌窗口显示；导出「概览 / 指标 / 每分钟统计 / 偏好」四张工作表的多 Sheet 工作簿。</p>
+        </article>
+        <article class="card feature-card">
+          <svg class="feature-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M9 11l-5 5 5 5M23 11l5 5-5 5M19 6l-6 20"/>
+          </svg>
+          <h3 data-i18n="feat.c6t">批量 · CLI · MCP</h3>
+          <p data-i18n="feat.c6b">文件夹级批量分析带逐文件进度与 ETA；命令行提供 analyze / batch / compare；MCP 服务器向 agent 暴露 10 个分析工具——三种接口共用同一分析服务，结果一致。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Gallery ================= -->
+  <section class="section section-alt" id="gallery" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <p class="section-kicker" data-i18n="gal.kicker">界面预览</p>
+      <h2 id="gallery-title" class="section-title" data-i18n="gal.title">真实运行截图</h2>
+      <p class="section-sub" data-i18n="gal.sub">应用为中文界面。以下截图取自 PySide6 主窗口、内嵌图表工作区与各功能对话框。</p>
+
+      <div class="tabs" role="tablist" aria-label="界面预览" data-i18n-attr="aria-label:gal.tablist">
+        <button type="button" role="tab" id="tab-main" class="tab-btn is-active" aria-selected="true" aria-controls="panel-main" data-panel="panel-main" data-i18n="gal.tabMain">主窗口</button>
+        <button type="button" role="tab" id="tab-plots" class="tab-btn" aria-selected="false" aria-controls="panel-plots" data-panel="panel-plots" tabindex="-1" data-i18n="gal.tabPlots">图表</button>
+        <button type="button" role="tab" id="tab-dialogs" class="tab-btn" aria-selected="false" aria-controls="panel-dialogs" data-panel="panel-dialogs" tabindex="-1" data-i18n="gal.tabDialogs">对话框</button>
+      </div>
+
+      <div id="panel-main" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-main" tabindex="0">
+        <div class="shot-grid">
+          <figure class="card shot-card">
+            <img src="images/screenshot-overview.png" width="1400" height="900" loading="lazy" decoding="async" alt="概览工作区截图：KPI 摘要卡与信号曲线" data-i18n-attr="alt:gal.alt.overview">
+            <figcaption data-i18n="gal.cap.overview">「概览」工作区：KPI 摘要卡与信号曲线</figcaption>
+          </figure>
+          <figure class="card shot-card">
+            <img src="images/screenshot-labchart.png" width="1400" height="900" loading="lazy" decoding="async" alt="LabChart 波形查看器截图：多通道导航与密度缩略图" data-i18n-attr="alt:gal.alt.labchart">
+            <figcaption data-i18n="gal.cap.labchart">LabChart 波形查看器：多通道导航与整段密度缩略图</figcaption>
+          </figure>
+          <figure class="card shot-card">
+            <img src="images/screenshot-plots.png" width="1400" height="900" loading="lazy" decoding="async" alt="图表工作区截图：14 类图表内嵌显示" data-i18n-attr="alt:gal.alt.plots">
+            <figcaption data-i18n="gal.cap.plots">「图表」工作区：14 类图表内嵌显示</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div id="panel-plots" class="tab-panel" role="tabpanel" aria-labelledby="tab-plots" tabindex="0" hidden>
+        <div class="shot-grid">
+          <figure class="card shot-card">
+            <img src="images/plot-cumulative.png" width="1400" height="900" loading="lazy" decoding="async" alt="累积舔舐曲线图：随时间累计的舔舐次数" data-i18n-attr="alt:gal.alt.cumulative">
+            <figcaption data-i18n="gal.cap.cumulative">累积舔舐曲线：随时间累计的舔舐次数</figcaption>
+          </figure>
+          <figure class="card shot-card">
+            <img src="images/plot-burst-probability.png" width="1400" height="900" loading="lazy" decoding="async" alt="爆发概率图：burst 规模与概率分布" data-i18n-attr="alt:gal.alt.burst">
+            <figcaption data-i18n="gal.cap.burst">爆发概率图：burst 规模与概率分布</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div id="panel-dialogs" class="tab-panel" role="tabpanel" aria-labelledby="tab-dialogs" tabindex="0" hidden>
+        <div class="shot-grid">
+          <figure class="card shot-card">
+            <img src="images/dialog-batch.png" width="876" height="764" loading="lazy" decoding="async" alt="批量处理对话框截图：文件夹批量分析进度" data-i18n-attr="alt:gal.alt.batch">
+            <figcaption data-i18n="gal.cap.batch">文件夹批量处理：统一参数、逐文件进度与合并输出</figcaption>
+          </figure>
+          <figure class="card shot-card">
+            <img src="images/dialog-statistics.png" width="820" height="402" loading="lazy" decoding="async" alt="统计分析对话框截图：跨文件均值 / SEM / 中位数比较" data-i18n-attr="alt:gal.alt.stats">
+            <figcaption data-i18n="gal.cap.stats">统计分析对话框：跨文件均值 / SEM / 中位数比较</figcaption>
+          </figure>
+          <figure class="card shot-card">
+            <img src="images/dialog-trainer.png" width="820" height="620" loading="lazy" decoding="async" alt="AI 训练窗口截图：波形标注与一键重训" data-i18n-attr="alt:gal.alt.trainer">
+            <figcaption data-i18n="gal.cap.trainer">AI 训练窗口：波形标注与一键重训</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Workflow ================= -->
+  <section class="section" id="workflow" aria-labelledby="workflow-title">
+    <div class="wrap">
+      <p class="section-kicker" data-i18n="flow.kicker">使用流程</p>
+      <h2 id="workflow-title" class="section-title" data-i18n="flow.title">五步从数据到结果</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <div><h3 data-i18n="flow.s1t">打开数据</h3><p data-i18n="flow.s1b">点击顶部「打开数据」或按 Ctrl+O，支持 .txt / .csv / .xlsx / .adicht，自动嗅探分隔符。</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <div><h3 data-i18n="flow.s2t">通道设置</h3><p data-i18n="flow.s2b">选择 LabChart 文件后，在通道角色表中把每个通道设为「饮水统计 / 辅助展示 / 忽略」，右下角预览波形。</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <div><h3 data-i18n="flow.s3t">一键分析</h3><p data-i18n="flow.s3b">点击「一键分析」或按 Ctrl+R，状态栏显示进度；完成后呈现 KPI、交互式波形与累积曲线。</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <div><h3 data-i18n="flow.s4t">查看图表</h3><p data-i18n="flow.s4b">切换到「图表」工作区，在时间序列 / 分布与热图 / 爆发与关系三组中选择 14 类图表。</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">5</span>
+          <div><h3 data-i18n="flow.s5t">导出结果</h3><p data-i18n="flow.s5b">「数据导出」→「导出 Excel（分析数据）」，得到多工作表结果，可直接用于统计与论文作图。</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= Update ================= -->
+  <section class="section section-alt" id="update" aria-labelledby="update-title">
+    <div class="wrap">
+      <p class="section-kicker" data-i18n="upd.kicker">软件更新</p>
+      <h2 id="update-title" class="section-title" data-i18n="upd.title">发现新版本，就自动覆盖安装</h2>
+      <div class="update-grid">
+        <div class="card update-card">
+          <svg class="update-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3 data-i18n="upd.s1t">启动自动检查</h3>
+          <p data-i18n="upd.s1b">软件启动后自动比对最新版本；也可在右上角「⋯」→「检查更新…」随时手动触发。</p>
+        </div>
+        <div class="card update-card">
+          <svg class="update-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+          <h3 data-i18n="upd.s2t">下载即校验</h3>
+          <p data-i18n="upd.s2b">发现新版本后点击「立即下载」；下载完成自动校验 SHA-256，校验通过才继续安装。</p>
+        </div>
+        <div class="card update-card">
+          <svg class="update-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4h-4"/></svg>
+          <h3 data-i18n="upd.s3t">静默覆盖安装</h3>
+          <p data-i18n="upd.s3b">校验通过后静默覆盖安装并自动重启；用户数据保存在 %APPDATA%\LickometerPro，升级不受影响。</p>
+        </div>
+        <div class="card update-card">
+          <svg class="update-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4ZM5 7l7 4m0 0 7-4m-7 4v8"/></svg>
+          <h3 data-i18n="upd.s4t">AI 模型独立更新</h3>
+          <p data-i18n="upd.s4b">舔舐识别模型可与软件本体分离推送，更新模型无需重装软件。</p>
+        </div>
+      </div>
+      <p class="update-manifest">
+        <span data-i18n="upd.manifest">更新数据源（清单）：</span>
+        <a href="https://github.com/BuTrue/Lickometer-Pro/blob/main/update/manifest.json">update/manifest.json</a>
+        <span class="manifest-url">https://raw.githubusercontent.com/BuTrue/Lickometer-Pro/main/update/manifest.json</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= Download ================= -->
+  <section class="section" id="download" aria-labelledby="download-title">
+    <div class="wrap download-grid">
+      <div>
+        <p class="section-kicker" data-i18n="dl.kicker">下载</p>
+        <h2 id="download-title" class="section-title" data-i18n="dl.title">开始使用 Lickometer Pro</h2>
+        <p class="section-sub" data-i18n="dl.sub">安装包为 Windows x64 安装向导（中文界面），当前用户级安装，无需管理员权限、不弹 UAC。</p>
+        <p class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/BuTrue/Lickometer-Pro/releases/latest" data-i18n="dl.btn">下载 v1.7.0 安装包</a>
+        </p>
+        <ul class="dl-list">
+          <li data-i18n="dl.f1">GitHub Releases 提供 LickometerPro_Setup_1.7.0.exe 与 SHA-256 校验值</li>
+          <li data-i18n="dl.f2">已安装旧版本时直接覆盖升级，用户数据保留</li>
+          <li data-i18n="dl.f3">卸载不会删除 %APPDATA%\LickometerPro 中的模型与标注缓存</li>
+        </ul>
+      </div>
+      <div class="card req-card">
+        <h3 data-i18n="dl.reqTitle">系统要求</h3>
+        <table class="req-table">
+          <thead>
+            <tr>
+              <th scope="col" data-i18n="dl.th.item">项目</th>
+              <th scope="col" data-i18n="dl.th.min">最低</th>
+              <th scope="col" data-i18n="dl.th.rec">推荐</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" data-i18n="dl.r.os">操作系统</th><td>Windows 10 x64</td><td>Windows 11 x64</td></tr>
+            <tr><th scope="row" data-i18n="dl.r.ram">内存</th><td>4 GB</td><td>8 GB</td></tr>
+            <tr><th scope="row" data-i18n="dl.r.disk">磁盘</th><td data-i18n="dl.r.disk.min">1 GB 可用空间</td><td data-i18n="dl.r.disk.rec">2 GB</td></tr>
+            <tr><th scope="row" data-i18n="dl.r.disp">显示</th><td>1280 × 720</td><td>1920 × 1080</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Docs ================= -->
+  <section class="section section-alt" id="docs" aria-labelledby="docs-title">
+    <div class="wrap">
+      <p class="section-kicker" data-i18n="doc.kicker">文档</p>
+      <h2 id="docs-title" class="section-title" data-i18n="doc.title">多语言文档</h2>
+      <div class="doc-grid">
+        <a class="card doc-card" href="https://github.com/BuTrue/Lickometer-Pro/blob/main/README.md">
+          <h3 data-i18n="doc.d1t">README（中文）</h3><p data-i18n="doc.d1b">功能总览、安装、快速开始、CLI 与 MCP、常见问题</p>
+        </a>
+        <a class="card doc-card" href="https://github.com/BuTrue/Lickometer-Pro/blob/main/README.en.md">
+          <h3>README (English)</h3><p data-i18n="doc.d2b">Features, installation, quick start, CLI &amp; MCP, FAQ</p>
+        </a>
+        <a class="card doc-card" href="https://github.com/BuTrue/Lickometer-Pro/blob/main/README.ja.md">
+          <h3>README（日本語）</h3><p data-i18n="doc.d3b">機能、インストール、クイックスタート、CLI / MCP、FAQ</p>
+        </a>
+        <a class="card doc-card" href="https://github.com/BuTrue/Lickometer-Pro/blob/main/README.fr.md">
+          <h3>README (Français)</h3><p data-i18n="doc.d4b">Fonctionnalités, installation, démarrage rapide, CLI &amp; MCP, FAQ</p>
+        </a>
+        <a class="card doc-card" href="https://github.com/BuTrue/Lickometer-Pro/blob/main/INSTALL.md">
+          <h3 data-i18n="doc.d5t">安装说明</h3><p data-i18n="doc.d5b">系统要求、安装、升级与卸载、常见问题</p>
+        </a>
+        <a class="card doc-card" href="https://github.com/BuTrue/Lickometer-Pro/blob/main/CHANGELOG.md">
+          <h3 data-i18n="doc.d6t">更新日志</h3><p data-i18n="doc.d6b">版本变更记录与已知限制</p>
+        </a>
+      </div>
+      <p class="doc-note" data-i18n="doc.note">本仓库为发布仓库：仅提供安装包、文档与更新清单，源码不公开。Weibull ILI 拟合方法参考 Davis, J. D. (1998), Appetite 31(3), 435–447（DOI: 10.1006/appe.1998.0167）。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-brand">
+      <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="14" fill="#7C5CBF"/>
+        <path d="M8 34 L20 34 23 18 27 46 31 26 34 38 37 34 56 34" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Lickometer Pro</strong>
+    </p>
+    <p class="footer-tagline" data-i18n="foot.tagline">为神经科学研究而作</p>
+    <nav class="footer-links" aria-label="页脚链接" data-i18n-attr="aria-label:foot.linksLabel">
+      <a href="https://github.com/BuTrue/Lickometer-Pro" data-i18n="foot.repo">GitHub 仓库</a>
+      <a href="https://github.com/BuTrue/Lickometer-Pro/releases" data-i18n="foot.releases">Releases</a>
+      <a href="https://github.com/BuTrue/Lickometer-Pro/blob/main/LICENSE.txt" data-i18n="foot.license">MIT 许可证</a>
+    </nav>
+    <p class="footer-disclaimer" data-i18n="foot.disclaimer">本项目为研究工具，不用于临床诊断。</p>
+    <p class="footer-copy">© 2025 Lickometer Pro · MIT License</p>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

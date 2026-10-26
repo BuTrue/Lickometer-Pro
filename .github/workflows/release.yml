@@ -1,0 +1,30 @@
+name: Validate release metadata
+
+# 本仓库是纯发行仓库（无源码），无法在 runner 上构建安装包；
+# 发布动作在维护者本机由 tools/publish_release.py --push 完成。
+# CI 的职责是校验发布元数据的一致性，防止清单与 Release 脱节。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "update/manifest.json"
+      - "release-notes/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate manifest against release state
+        run: python scripts/validate_manifest.py
